@@ -1,18 +1,43 @@
-# Rolling Stone
+# Bruce's Blog
 
-简约的公开个人博客，记录 AI / LLM 洞察、学习思考与研究实践。目标地址是 <https://brucekor.github.io/>。
+我的公开个人博客：[brucekor.github.io](https://brucekor.github.io/)。文章用 Markdown 写作；提交到 `main` 后，GitHub Actions 会自动生成并更新网站。当前的三篇文章是标有「示例」的排版演示，可以逐篇替换。
 
-这是纯静态网站：没有登录、私密文章或在线后台。**提交到这个仓库的所有内容都应视为公开。** `content/` 中目前有三篇标记为「示例」的排版演示文章。
+## 发布一篇新 Post
 
-## 写文章
+只需改两个地方，直接在 GitHub 网页上完成即可：
 
-1. 在 `content/` 新建 Markdown 文件，例如 `my-first-note.md`。可以像编辑 README 一样使用 GitHub 网页编辑器，或在本地用任意 Markdown 编辑器写作。
-2. 在 `content/posts.json` 增加一条记录，填写标题、日期、栏目、摘要、`slug` 和 `file`。栏目 ID 可用 `ai`、`learning`、`research`。这里的文章全部公开；请勿在仓库中保存私密内容或未准备公开的草稿。
-3. 提交到 `main`。GitHub Actions 会重新生成网页并发布到 GitHub Pages。若只想保存草稿，请放在本机，不要提交到公开仓库。
+1. 打开仓库的 [`content` 文件夹](https://github.com/BruceKor/BruceKor.github.io/tree/main/content)，点 **Add file → Create new file**，输入英文文件名，例如 `my-first-post.md`。正文像写 README 一样使用 Markdown：`#` 标题、`##` 小节、`-` 列表、代码块、链接等。写完点 **Commit changes**。
+2. 打开 [`content/posts.json`](https://github.com/BruceKor/BruceKor.github.io/blob/main/content/posts.json)，点右上角铅笔图标，把下面这样的一条记录加到数组里，再点 **Commit changes**。数组中相邻记录之间要有逗号。
 
-现有示例的格式可直接参照。`sample: true` 会在文章旁显示「示例」；正式文章不需要此字段。`content/about.md` 是「关于」页面。`site.json` 存放网站标题、作者和正式网址。
+```json
+{
+  "slug": "my-first-post",
+  "title": "我的第一篇文章",
+  "date": "2026-10-19",
+  "categoryId": "ai",
+  "description": "用一句话概括文章内容。",
+  "file": "my-first-post.md",
+  "tags": ["AI", "LLM"]
+}
+```
 
-本地预览：
+`slug` 决定文章网址，只用小写英文字母、数字和连字符，并且不能与已有文章重复。`file` 必须与第 1 步的文件名一致。`date` 使用 `YYYY-MM-DD`。`categoryId` 可选 `ai`（技术洞见）、`learning`（随想记录）、`research`（研究手记）；分类名称会自动生成，不用另外填写。`tags` 可以留空或删去。正式文章不要添加 `sample: true`，它只用于标记现有示例。
+
+提交后到仓库的 **Actions** 页查看发布结果，通常稍等片刻就能在网站上看到新文章。若发布失败，先检查 `posts.json` 的逗号、引号、文件名和日期。
+
+## 修改 About
+
+打开 [`content/about.md`](https://github.com/BruceKor/BruceKor.github.io/blob/main/content/about.md)，点铅笔图标，直接修改文字并提交。它同样支持 Markdown；提交成功后 About 页面会自动更新。网站名称、描述和地址则在 [`site.json`](https://github.com/BruceKor/BruceKor.github.io/blob/main/site.json) 中修改。
+
+## 私密文件与草稿
+
+**不能把单个文件推送到这个公开仓库，同时让它仅自己可见。** [GitHub 的仓库可见性规则](https://docs.github.com/en/repositories/creating-and-managing-repositories/about-repositories#about-repository-visibility)以整个仓库为单位；公开仓库的文件和提交历史均可被查看。把文件从最新版本删除，也不会自动从历史记录中抹去。
+
+未准备公开的文章可以先放在本机的 `drafts/` 或 `private/` 文件夹；这两个文件夹已加入 `.gitignore`，普通提交不会带上它们。若需要跨设备保存私密草稿，另建一个 **Private** GitHub 仓库，写好后只把打算公开的最终版本复制到本仓库。About 页面本身向所有访客开放，因此要显示在 About 上的文字也必然是公开的。
+
+## 本地预览
+
+在本仓库目录运行：
 
 ```sh
 npm ci
@@ -20,8 +45,4 @@ npm run build
 python3 -m http.server 4173 --directory dist
 ```
 
-打开 <http://127.0.0.1:4173/>。构建会生成 HTML、RSS 和站点地图；若文章元数据仍标记为私密或草稿，构建会报错。
-
-## GitHub Pages
-
-仓库名须为 `BruceKor.github.io`，默认分支 `main`。在仓库 **Settings → Pages → Build and deployment** 中将 Source 设为 **GitHub Actions**。工作流文件是 `.github/workflows/pages.yml`，发布目录为 `dist/`。
+然后打开 <http://127.0.0.1:4173/>。构建会生成 HTML、RSS 和站点地图；RSS 仍可通过 `/feed.xml` 订阅，只是不占用顶部导航。发布配置位于 `.github/workflows/pages.yml`；Pages 的 Source 使用 **GitHub Actions**。
