@@ -1,0 +1,84 @@
+/* Editorial typography inspired by the structure of an academic weblog. */
+:root {
+  --paper: #fbfaf8;
+  --ink: #252a30;
+  --accent: #315c82;
+  --muted: #69717b;
+  --line: #dfe2e5;
+  --soft: #f2f3f4;
+  --serif: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Georgia,
+    "Songti SC", STSong, "Noto Serif CJK SC", serif;
+}
+
+html[data-theme=dark] {
+  --paper: #171b20;
+  --ink: #ebedf0;
+  --accent: #9bbdd9;
+  --muted: #a2abb4;
+  --line: #39414a;
+  --soft: #222932;
+}
+
+body { line-height: 1.9; }
+.site { max-width: 760px; padding: 64px 42px 34px; }
+.site-header { margin-bottom: 38px; padding-bottom: 0; border-bottom: 0; }
+.site-title {
+  font: 500 43px/1.2 var(--serif);
+  letter-spacing: -1.5px;
+}
+.site-title a { color: var(--ink); }
+.site-description {
+  margin: 10px 0 24px;
+  font: italic 16px/1.7 var(--serif);
+}
+.nav {
+  gap: 30px;
+  padding: 10px 0 11px;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  font-size: 13px;
+}
+.nav a { color: var(--muted); }
+.nav a:hover, .nav a[aria-current=page] { color: var(--accent); }
+
+.post-summary { margin-bottom: 31px; padding-bottom: 31px; }
+.post-summary h2 {
+  margin-bottom: 8px;
+  font: 500 27px/1.45 var(--serif);
+  letter-spacing: -.45px;
+}
+.post-meta { font-size: 12px; }
+.post-summary > p { margin: 17px 0 11px; font-size: 15px; }
+
+.page-title, .article-header h1 {
+  font-family: var(--serif);
+  font-weight: 500;
+  letter-spacing: -.55px;
+}
+.page-title { margin-bottom: 27px; font-size: 33px; line-height: 1.35; }
+.archive-title { font: 500 19px/1.55 var(--serif); }
+.article-header h1 { margin-bottom: 13px; font-size: 36px; line-height: 1.4; }
+.toc { margin-bottom: 30px; }
+.prose { line-height: 1.95; }
+.prose h2, .prose h3 { font-family: var(--serif); }
+.prose h2 { margin-top: 38px; font-size: 25px; }
+.prose h3 { margin-top: 30px; font-size: 21px; }
+
+@media (max-width: 600px) {
+  .site { padding: 34px 22px 24px; }
+  .site-header { margin-bottom: 29px; }
+  .site-title { font-size: 38px; }
+  .site-description { margin: 9px 0 20px; font-size: 15px; }
+  .nav { gap: 25px; padding: 9px 0 10px; font-size: 13px; }
+  .post-summary { margin-bottom: 27px; padding-bottom: 27px; }
+  .post-summary h2 { margin-bottom: 7px; font-size: 24px; line-height: 1.5; }
+  .post-meta { font-size: 11px; }
+  .post-summary > p { margin: 15px 0 9px; font-size: 14px; }
+  .page-title { margin-bottom: 23px; font-size: 29px; }
+  .archive-title { font-size: 17px; line-height: 1.65; }
+  .article-header h1 { font-size: 30px; line-height: 1.45; }
+  .toc { margin-bottom: 24px; }
+  .prose { line-height: 1.95; }
+  .prose h2 { margin-top: 32px; font-size: 22px; }
+  .prose h3 { font-size: 19px; }
+}
