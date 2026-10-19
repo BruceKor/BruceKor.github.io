@@ -1,4 +1,4 @@
-name: Publish Rolling Stone
+name: Publish Bruce's Blog
 
 on:
   push:
