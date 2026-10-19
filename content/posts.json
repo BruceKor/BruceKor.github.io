@@ -1,0 +1,45 @@
+[
+  {
+    "slug": "reading-ai-progress",
+    "title": "看懂一个 AI 进展，先问对问题",
+    "date": "2026-10-10",
+    "category": "AI / LLM 洞察",
+    "categoryId": "ai",
+    "description": "从问题、方法到证据：用一组清晰的问题，拆解新技术背后的实际变化。",
+    "file": "reading-ai-progress.md",
+    "tags": [
+      "AI",
+      "LLM",
+      "技术观察"
+    ],
+    "sample": true
+  },
+  {
+    "slug": "learning-through-explaining",
+    "title": "从「读懂了」到「能解释」",
+    "date": "2026-10-10",
+    "category": "学习与思考",
+    "categoryId": "learning",
+    "description": "把输入变成理解：解释一个概念、重建一个例子，再记下仍然不确定的地方。",
+    "file": "learning-through-explaining.md",
+    "tags": [
+      "学习方法",
+      "笔记"
+    ],
+    "sample": true
+  },
+  {
+    "slug": "paper-to-practice",
+    "title": "读一篇论文，画一张问题地图",
+    "date": "2026-10-10",
+    "category": "研究与教程",
+    "categoryId": "research",
+    "description": "从研究问题出发，梳理假设、方法与实验，让阅读成为下一次实践的起点。",
+    "file": "paper-to-practice.md",
+    "tags": [
+      "论文阅读",
+      "研究方法"
+    ],
+    "sample": true
+  }
+]
