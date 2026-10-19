@@ -1,0 +1,16 @@
+{
+  "name": "rolling-stone-pages",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node scripts/build.mjs"
+  },
+  "dependencies": {
+    "marked": "17.0.1",
+    "sanitize-html": "^2.18.0"
+  },
+  "engines": {
+    "node": ">=24"
+  }
+}
