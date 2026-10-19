@@ -1,5 +1,6 @@
 const root = document.documentElement;
-try { root.dataset.theme = localStorage.getItem('rolling-stone-theme') || 'light'; } catch {}
+const themeKey = 'bruces-blog-theme';
+try { root.dataset.theme = localStorage.getItem(themeKey) || localStorage.getItem('rolling-stone-theme') || 'light'; } catch {}
 const themeButton = document.querySelector('[data-theme-toggle]');
 function updateThemeButton() {
   const dark = root.dataset.theme === 'dark';
@@ -9,7 +10,7 @@ function updateThemeButton() {
 }
 themeButton?.addEventListener('click', () => {
   root.dataset.theme = root.dataset.theme === 'dark' ? 'light' : 'dark';
-  try { localStorage.setItem('rolling-stone-theme', root.dataset.theme); } catch {}
+  try { localStorage.setItem(themeKey, root.dataset.theme); } catch {}
   updateThemeButton();
 });
 if (themeButton) updateThemeButton();
